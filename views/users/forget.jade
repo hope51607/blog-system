@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+		title Blog System
+	body
+		div(style="float:left")
+			a(href='/') Home
+		div(style='float:right')
+				a(href='/users/signin',style='margin:10px;') 登入
+				a(href='/users/register',style='margin:10px;') 註冊
+		div(style='padding:50px;')
+			form(name="login", action="/apis/login", method="post")
+				h1 忘記密碼
+				div
+					p
+						label(style='padding-right:17px') 使用者名稱/e-mail
+						input(type="text", name="user",placeholder='username@example.com')
+					p
+						span(style='padding-right:274px')
+						input(type="submit",name="submit",value="忘記密碼")

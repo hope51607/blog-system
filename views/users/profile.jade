@@ -1,0 +1,31 @@
+doctype html
+html
+	head
+		title Blog System
+	body
+		div(style="float:left")
+			a(href='/') Home
+		div(style='float:right')
+			if (username && authenticated)
+				a(href='/users/signout',style='margin:10px;') 登出
+				a(href='/users/add_article',style='margin:10px;') 新增文章
+				a(href='/users/profile',style='margin:10px;') 管理
+				span #{username}
+			else
+				a(href='/users/signin',style='margin:10px;') 登入
+				a(href='/users/register',style='margin:10px;') 註冊
+				a(href='/users/forget',style='margin:10px;') 忘記密碼
+		div(style='padding:50px;')
+			h1 #{title}
+		for article in blogs
+			div
+				div(style='float:left;margin-top:10px;')= article.Username
+				div(style='float:right;margin-top:10px;')= article.CreateDate
+				br
+				div(style='clear:both;margin-top:20px;')=article.Article
+				a(href='/apis/delete/'+article.id,style='float:right;margin-top:5px;margin-right:15px;') 刪除
+				a(href='/users/modify/'+article.id,style='float:right;margin-top:5px;margin-right:15px;') 修改
+				hr(style='margin-top:30px;')
+
+
+

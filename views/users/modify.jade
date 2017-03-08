@@ -1,0 +1,29 @@
+doctype html
+html
+head
+	title= Modify
+body
+	div(style='float:left;margin:10px;')
+		a(href='/') Home
+	div(style='float:right')
+		if (username && authenticated)
+			a(href='/users/signout',style='margin:10px;') 登出
+			a(href='/users/add_article',style='margin:10px;') 新增文章
+			a(href='/users/profile',style='margin:10px;') 管理
+			span #{username}
+		else
+			a(href='/users/signin',style='margin:10px;') 登入
+			a(href='/users/register',style='margin:10px;') 註冊
+			a(href='/users/forget',style='margin:10px;') 忘記密碼
+	div(style='padding:50px;')
+		form(name="modify",action="/apis/update/"+messageID,method="post")
+			h1 修改文章
+			div
+				p
+					span 發文者 : 
+					label(style='padding-right:50px') #{username}
+				p
+					textarea(cols="50",rows="25",style='resize : none;',name="Content") #{blogs[0].Article}
+				div
+					span(style='padding-right:377px')
+						input(type="submit", name="submit",value="更新")
