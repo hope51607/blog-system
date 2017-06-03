@@ -1,0 +1,27 @@
+<!doctype html>
+<head>
+    <title>新增文章</title>
+</head>
+<body>
+    <% include /../header %>
+    <div style='padding:50px;'>
+        <form name="add" action="/apis/add" method="post">
+            <h1>新增文章</h1>
+            <div>
+                <p>
+                    <span>發文者:</span>
+                    <label style='padding-right:50px'><%=username%></label>
+                </p>
+                <p>
+                    <textarea name="Content" id="" cols="50" rows="25" style='resize : none;'></textarea>
+                </p>
+                <div>
+                    <span style='padding-right:377px'>
+                        <input type="submit" name="submit" value="新增">
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <% include /../footer %>
+</body>

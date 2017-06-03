@@ -1,0 +1,53 @@
+<!doctype html>
+<html> 
+
+<head>
+    <title>留言</title>
+</head>
+
+<body>
+    <% include /../header %>
+    <div style='padding:50px;'>
+        <h1>留言</h1>
+        <div>
+            <div style="float:left;margin-top:10px;"><%= blogs[0].Username%></div>
+            <div style="float:right;margin-top:10px;"><%= blogs[0].CreateDate%></div>
+            <br>
+            <div style="clear:both;margin-top:20px;"><%= blogs[0].Article%></div>
+            <hr style='margin-top:30px;'><br><br>
+        </div>
+        <div style='width:40%;margin-left:30%'>
+            <%for(var i in comments){%>
+                <div style='right:42%; margin-top:20px;'>
+                    <div style='float:left;margin-top:10px;'><%=comments[i].Visitor%></div>
+                    <div style='float:right;margin-top:10px;'><%=comments[i].CreateDate%></div>
+                    <br>
+                    <div style='clear:both'> <%= comments[i].Comment%> </div>
+                    <hr style='margin-top:30px;'>
+                    <br><br>
+                </div>
+            <%}%>
+        </div>
+        <div style='margin-left:30%'>
+            <%- '<form name="comment" action="/apis/comment/' + messageID + '"method="post">' %>
+                <h1>留言</h1>
+                <div>
+                    <p>
+                        <span>留言者 :</span>
+                        <input type="text" name="Visitor">
+                    </p>
+                    <p><textarea name="Comment" id="" cols="50" rows="10" style='resize : none;'></textarea></p>
+                    <div>
+                        <span style='padding-right:377px'></span>
+                        <input type="submit" name="submit" value="回覆">
+                        <hr style='width:50%;margin-top:30px;margin-left:0%'>
+                        <br><br>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <% include /../footer %>
+</body>
+
+</html>

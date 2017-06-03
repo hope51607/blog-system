@@ -5,16 +5,22 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
+var engine = require('ejs-mate');
+var helpers = require('express-helpers'); //ejs link_to 要用
+
 
 var index = require('./routes/index');		//設定路由
 var users = require('./routes/users');
 var apis = require('./routes/apis');
 
-var app = express();
+var app = express();   //ejs link_to 要用
+
+helpers(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.engine('ejs',engine);
+app.set('view engine', 'ejs');   //jade
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

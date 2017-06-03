@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <title>Blog System</title>
+</head>
+<body>
+    <% include /../header %>
+    <div style='padding:50px;'>
+        <form name="login" action="/apis/login" method="post">
+            <h1>忘記密碼</h1>
+            <div>
+                <p>
+                    <label for="user" style='padding-right:17px'>使用者名稱/e-mail</label>
+                    <input type="text"  name="user" placeholder='username@example.com' id="user">
+                </p>
+                <p>
+                    <span style='padding-right:274px'></span>
+                    <input type="submit"  name="submit" value="忘記密碼">
+                </p>
+                
+            </div>
+        </form>
+    </div>
+    <% include /../footer %>
+</body>
+</html>

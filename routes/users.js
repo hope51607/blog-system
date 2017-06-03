@@ -13,6 +13,8 @@ router.get('/register',function(req, res, next){
 		res.redirect('/');
 		return;
 	}
+	res.locals.username = req.session.username;
+	res.locals.authenticated = req.session.logined;
 	res.render('users/register');
 });
 
@@ -22,6 +24,8 @@ router.get('/signin',function(req,res,next){
 		res.redirect('/');
 		return;
 	}
+	res.locals.username = req.session.username;
+	res.locals.authenticated = req.session.logined;
 	res.render('users/signin');
 });
 
@@ -38,6 +42,8 @@ router.get('/forget',function(req,res,next){
 		res.redirect('/');
 		return;
 	}
+	res.locals.username = req.session.username;
+	res.locals.authenticated = req.session.logined;
 	res.render('users/forget');	
 });
 

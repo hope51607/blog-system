@@ -1,0 +1,15 @@
+<div style ="float:left">
+        <a href="/">Home</a>
+    </div>
+    <div style="float:right">
+        <%if(username && authenticated){%> 
+            <a href="/users/signout" style="margin:10px;"> 登出 </a>
+            <a href="/users/add_article" style="margin:10px;"> 新增文章 </a>
+            <a href="/users/profile" style="margin:10px;"> 管理 </a>
+            <span> <%= username %> </span>
+        <%}else{%>
+            <a href="/users/signin" style="margin:10px;"> 登入 </a>
+            <a href="/users/register" style="margin:10px;"> 註冊 </a>
+            <a href="/users/forget" style="margin:10px;"> 忘記密碼 </a>
+        <%}%>
+    </div>

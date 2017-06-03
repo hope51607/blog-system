@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <title>Blog System</title>
+</head>
+
+<body>
+    <% include /../header %>
+    <div style="padding:50px;">
+        <h1><%= title%></h1>
+    </div>
+    <%for(var i in blogs){%>
+        <div>
+            <div style="float:left;margin-top:10px;"><%= blogs[i].Username%></div>
+            <div style="float:right;margin-top:10px;"><%= blogs[i].CreateDate%></div>
+            <br>
+            <div style="clear:both;margin-top:20px;"><%= blogs[i].Article%></div>
+            <span style='float:right;margin-top:5px;margin-right:15px;'><%- link_to("刪除",'/apis/delete/'+blogs[i].id) %></span>
+            <span style='float:right;margin-top:5px;margin-right:15px;'><%- link_to("修改",'/users/modify/'+blogs[i].id) %></span>
+            <hr style='margin-top:110px;'>
+        </div>
+    <%}%>
+    <% include /../footer %>
+</body>
+</html>
